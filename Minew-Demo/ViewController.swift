@@ -12,22 +12,36 @@ class ViewController: UIViewController {
 
     private var devices: [MTPeripheral] = []
     
-    @IBOutlet weak var deviceTableView: UITableView!
+    @IBOutlet private weak var deviceTableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        deviceTableView.dataSource = self
-        deviceTableView.delegate = self
-        deviceTableView.register(DeviceTableCell.self, forCellReuseIdentifier: "DeviceTableCell")
+        setupTable()
         scanDevices()
     }
     
-    func scanDevices() {
+    private func setupTable(){
+        deviceTableView.dataSource = self
+        deviceTableView.delegate = self
+        deviceTableView.register(DeviceTableCell.self, forCellReuseIdentifier: "DeviceTableCell")
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        deviceTableView.addSubview(refreshControl)
+    }
+    
+    private func scanDevices() {
         BeaconPlusManager.sharedInstance.scanDevices {[weak self] devices in
+            self?.refreshControl.endRefreshing()
             self?.devices = devices
             self?.deviceTableView.reloadData()
+            BeaconPlusManager.sharedInstance.stopScan()
         }
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        scanDevices()
     }
 }
 
