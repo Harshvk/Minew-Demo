@@ -17,11 +17,11 @@
 		9201688E2B6F88B000568324 /* Minew_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201688D2B6F88B000568324 /* Minew_DemoUITests.swift */; };
 		920168902B6F88B000568324 /* Minew_DemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201688F2B6F88B000568324 /* Minew_DemoUITestsLaunchTests.swift */; };
 		920168AA2B75373E00568324 /* MTBeaconPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9201689E2B6FA4A000568324 /* MTBeaconPlus.framework */; };
-		920168AB2B75373E00568324 /* MTBeaconPlus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9201689E2B6FA4A000568324 /* MTBeaconPlus.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		920168AB2B75373E00568324 /* MTBeaconPlus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9201689E2B6FA4A000568324 /* MTBeaconPlus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		920168AD2B75374100568324 /* iOSDFULibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9201689D2B6FA4A000568324 /* iOSDFULibrary.framework */; };
-		920168AE2B75374100568324 /* iOSDFULibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9201689D2B6FA4A000568324 /* iOSDFULibrary.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		920168AE2B75374100568324 /* iOSDFULibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9201689D2B6FA4A000568324 /* iOSDFULibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		920168AF2B75374400568324 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9201689C2B6FA4A000568324 /* ZIPFoundation.framework */; };
-		920168B02B75374400568324 /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9201689C2B6FA4A000568324 /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		920168B02B75374400568324 /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9201689C2B6FA4A000568324 /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		920168B22B7539BC00568324 /* BeaconPlusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920168B12B7539BC00568324 /* BeaconPlusManager.swift */; };
 		920168B62B7546D600568324 /* DeviceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920168B42B7546D600568324 /* DeviceTableCell.swift */; };
 		920168B72B7546D600568324 /* DeviceTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920168B52B7546D600568324 /* DeviceTableCell.xib */; };
@@ -503,9 +503,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C9HC3S9V88;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = C9HC3S9V88;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -527,6 +529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.RediXpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -539,9 +542,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C9HC3S9V88;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = C9HC3S9V88;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -563,6 +568,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.RediXpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

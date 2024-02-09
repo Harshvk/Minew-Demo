@@ -33,7 +33,6 @@ class DeviceDetailVC: UIViewController {
             
             frames?.forEach({ frame in
                 if frame.frameType == .FrameiBeacon {
-                    
                     if let beacon = frame as? MinewiBeacon {
                         self.deviceUuid.text = "UUID: " + beacon.uuid
                         self.deviceSlotNumber.text = "Slot: \(beacon.slotNumber)"
@@ -41,6 +40,7 @@ class DeviceDetailVC: UIViewController {
                         self.deviceBattery.text = "Battery: \(beacon.battery)"
                     }
                 }
+                printDeviceData(frame: frame)
             })
             connector.statusChangedHandler = { [weak self] (status, error) in
                 self?.deviceStatus.text = "Status: \(status)"
@@ -49,6 +49,28 @@ class DeviceDetailVC: UIViewController {
                 default: break
                 }
             }
+        }
+    }
+    
+    private func printDeviceData(frame: MinewFrame){
+        switch frame.frameType {
+        case .FrameiBeacon: 
+            if let beacon = frame as? MinewiBeacon {
+                print("Beacon data",beacon.uuid)
+            }
+        case .FrameURL:
+            if let urlData = frame as? MinewURL {
+                print("URL data",urlData.urlString)
+            }
+        case .FrameUID:
+            if let data = frame as? MinewUID {
+                print("UID data",data.namespaceId)
+            }
+        case .FrameLineBeacon:
+            if let data = frame as? MinewLineBeacon {
+                print("UID data",data.hwId)
+            }
+        default: print(frame.frameType, frame.description)
         }
     }
     

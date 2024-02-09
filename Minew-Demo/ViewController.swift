@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     private func setupTable(){
         deviceTableView.dataSource = self
         deviceTableView.delegate = self
-        deviceTableView.register(DeviceTableCell.self, forCellReuseIdentifier: "DeviceTableCell")
+        deviceTableView.register(UINib(nibName: "DeviceTableCell", bundle: nil), forCellReuseIdentifier: "DeviceTableCell")
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         deviceTableView.addSubview(refreshControl)
@@ -55,7 +55,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             fatalError("Failed to deque cell")
         }
         let device = devices[indexPath.row]
-        cell.setupCell(name: device.framer.name ?? "", mac: device.framer.mac ?? "")
+        cell.setupCell(name: device.framer.name ?? "Name", mac: device.framer.mac ?? "\(device.framer.rssi)")
         return cell
     }
     
